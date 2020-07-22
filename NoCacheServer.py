@@ -11,5 +11,6 @@ class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 if __name__ == '__main__':
     http.server.test(
         HandlerClass=NoCacheHTTPRequestHandler,
-        port=PORT
+        port=PORT,
+        bind='127.0.0.1'
     )
