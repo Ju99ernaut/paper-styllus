@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,22 +14,30 @@
 	<link href="css/styles.css" rel="stylesheet" />
 	<link href="css/toolbar.css" rel="stylesheet" />
 	<link href="css/toolOptionPanel.css" rel="stylesheet" />
-	
+	<!---<link rel="stylesheet" href="css/layerPanel.css">-->
+
 </head>
+
 <body>
 	<canvas id="paperCanvas" data-paper-resize="true" data-paper-hidpi="off"></canvas>
-	
+
 	<div id="loadingScreen" class="loadingScreen">
 		<div class="panel">Loading...</div>
 	</div>
-	
+
 	<!-- Main Menu -->
 	<nav class="appNav" id="appNav">
 		<ul class="topMenu">
-			<li class="topMenuButton"><svg class="burgerButton" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><line stroke-width="12" x1="0" y1="9.5" x2="100" y2="9.5"/><line stroke-width="12" x1="0" y1="50.5" x2="100" y2="50.5"/><line stroke-width="12" x1="0" y1="90.5" x2="100" y2="90.5"/></svg>
+			<li class="topMenuButton"><svg class="burgerButton" version="1.1" xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+					enable-background="new 0 0 100 100" xml:space="preserve">
+					<line stroke-width="12" x1="0" y1="9.5" x2="100" y2="9.5" />
+					<line stroke-width="12" x1="0" y1="50.5" x2="100" y2="50.5" />
+					<line stroke-width="12" x1="0" y1="90.5" x2="100" y2="90.5" /></svg>
 				<ul class="subMenu">
 					<li class="clearDocument_button">New</li>
-					<li class="importJSON_button">Open<input id="fileUploadJSON" class="fileUploadInput" type="file" accept=".json" ></li>
+					<li class="importJSON_button">Open<input id="fileUploadJSON" class="fileUploadInput" type="file"
+							accept=".json"></li>
 					<li class="exportJSON_button">Save</li>
 					<li class="space"></li>
 					<li class="undo_button halfWidth left">Undo</li>
@@ -36,10 +45,12 @@
 					<li class="space"></li>
 					<li class="importMenu hasSubSubMenu">Import
 						<ul class="subSubMenu">
-							<li class="importImage_button">Image<input id="fileUploadImage" class="fileUploadInput" type="file" accept=".gif, .jpg, .jpeg, .png" ></li>
-					<li class="importImageFromURL_button">Image from URL</li>
-							<li class="importSVG_button">SVG<input id="fileUploadSVG" class="fileUploadInput" type="file" accept=".svg" ></li>
-					<li class="importSVGFromURL_button">SVG from URL</li>
+							<li class="importImage_button">Image<input id="fileUploadImage" class="fileUploadInput"
+									type="file" accept=".gif, .jpg, .jpeg, .png"></li>
+							<li class="importImageFromURL_button">Image from URL</li>
+							<li class="importSVG_button">SVG<input id="fileUploadSVG" class="fileUploadInput"
+									type="file" accept=".svg"></li>
+							<li class="importSVGFromURL_button">SVG from URL</li>
 						</ul>
 					</li>
 					<li class="exportMenu hasSubSubMenu">Export
@@ -49,7 +60,7 @@
 						</ul>
 					</li>
 					<li class="space"></li>
-					<li class="layerPanelButton" title="Layer Panel">Layers</li>
+					<!--<li class="layerPanelButton" title="Layer Panel">Layers</li>-->
 					<li class="scriptEditorButton" title="Script Editor">Script Editor</li>
 					<li class="space"></li>
 					<li class="hasSubSubMenu">View
@@ -59,14 +70,14 @@
 							<li class="resetZoom_button" title="Ctrl-1">Reset zoom</li>
 							<li class="resetPan_button">Reset pan</li>
 						</ul>
-					</li>					
+					</li>
 					<li class="space"></li>
 					<li class="resetSettings_button">Reset Settings</li>
 					<li class="space"></li>
 					<li class="aboutButton" title="About">About</li>
 				</ul>
 			</li>
-			
+
 			<li class="topMenuButton">Tool
 				<ul class="subMenu" id="toolSubMenu">
 				</ul>
@@ -74,22 +85,23 @@
 
 		</ul>
 	</nav>
-	
+
 	<div id="toolbar" class="toolbar">
-		
+
 		<!-- Tools Container -->
 		<div class="toolsContainer toolbarSection"></div>
-		
+
 		<!-- Color Container -->
 		<div class="colorContainer toolbarSection extraSpace">
 			<input type="text" id="fillColorInput" class="fillColor" />
-			<input type="text" id="strokeColorInput" class="strokeColor"/>
+			<input type="text" id="strokeColorInput" class="strokeColor" />
 			<div class="colorSwitchButton" id="colorSwitchButton" title="Switch colors"></div>
 		</div>
-		
+
 		<div class="opacitySection toolbarSection extraSpace">
 			<label class="toolbarLabel">Opacity</label>
-			<input type="number"  min="0" max="100" maxlength="3" id="opacityInput" value="100" class="opacityInput comboInput" title="Opacity"/>
+			<input type="number" min="0" max="100" maxlength="3" id="opacityInput" value="100"
+				class="opacityInput comboInput" title="Opacity" />
 			<select id="opacitySelect" class="opacitySelect comboSelect" title="Opacity">
 				<option class="hidden" selected value=""></option>
 				<option value="0">0%</option>
@@ -105,7 +117,7 @@
 				<option value="100">100%</option>
 			</select>
 		</div>
-		
+
 		<div class="blendModeSection toolbarSection extraSpace">
 			<label class="toolbarLabel">Blending</label>
 			<select id="blendModeSelect" class="blendModeSelect" title="Blend mode">
@@ -143,26 +155,27 @@
 				<option value="xor">XOR</option>
 			</select>
 		</div>
-		
+
 		<div class="strokeSection toolbarSection extraSpace">
 			<label class="toolbarLabel">Stroke</label>
-			<input type="number"  min="0" maxlength="3" id="strokeInput" value="1" class="strokeInput"/>
+			<input type="number" min="0" maxlength="3" id="strokeInput" value="1" class="strokeInput" />
 			<div class="strokeButtons">
 				<button class="inputHelper increase" id="increaseStrokeWidthButton">▴</button>
 				<button class="inputHelper decrease" id="decreaseStrokeWidthButton">▾</button>
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="statusBar" class="statusBar">
 		<div id="selectionInfoBar" class="statusBarSection">
 			<div id="selectionTypeLabel" class="selectionTypeLabel"></div>
 		</div>
-		
+
 		<!-- Zoom Container -->
 		<div class="zoomContainer statusBarSection">
 			<label class="zoomLabel">Zoom</label>
-			<input type="number"  min="0" max="6000" maxlength="4" id="zoomInput" value="100" class="zoomInput comboInput"/>
+			<input type="number" min="0" max="6000" maxlength="4" id="zoomInput" value="100"
+				class="zoomInput comboInput" />
 			<select id="zoomSelect" class="zoomSelect comboSelect">
 				<option class="hidden" selected value=""></option>
 				<option value="10">1000%</option>
@@ -176,9 +189,9 @@
 				<option value="0.1">10%</option>
 			</select>
 		</div>
-		
+
 	</div>
-	
+
 	<div id="codeEditorContainer" class="codeEditorContainer hidden">
 		<nav class="codeEditorButtons appNav">
 			<ul class="topMenu">
@@ -186,17 +199,19 @@
 			</ul>
 		</nav>
 		<textarea id="codeEditorArea" class="codeEditorArea"></textarea>
-		<div class="consoleOutput" id="consoleOutput"><div id="clearConsoleButton" class="clearConsoleButton">Clear</div></div>
+		<div class="consoleOutput" id="consoleOutput">
+			<div id="clearConsoleButton" class="clearConsoleButton">Clear</div>
+		</div>
 	</div>
-	
+
 	<div id="menuInputBlocker" class="menuInputBlocker hidden"></div>
 	<div id="colorInputBlocker" class="colorInputBlocker hidden"></div>
-	
+
 	<!-- libraries -->
 	<script src="js/lib/paper-full.min.js"></script>
 	<script src="js/lib/jquery-2.2.4.min.js"></script>
-	<script src="js/lib/jquery-ui.min.js"></script>
-	<script src="js/lib/jquery-extensions.js"></script>
+	<!--<script src="js/lib/jquery-ui.min.js"></script>-->
+	<!--<script src="js/lib/jquery-extensions.js"></script>-->
 	<script src="js/lib/filesaver.js"></script>
 	<script src="js/lib/canvas-toBlob.js"></script>
 	<script src="js/lib/spectrum.js"></script>
@@ -234,9 +249,9 @@
 	<script src="js/helper.js"></script>
 	<script src="js/codeEditor.js"></script>
 	<script src="js/geometry.js" type="text/paperscript" data-paper-canvas="paperCanvas"></script>
-	
+
 	<!-- tools -->
-	
+
 	<script src="js/tools/select.js" type="text/paperscript" data-paper-canvas="paperCanvas"></script>
 	<script src="js/tools/detailselect.js" type="text/paperscript" data-paper-canvas="paperCanvas"></script>
 	<script src="js/tools/draw.js" type="text/paperscript" data-paper-canvas="paperCanvas"></script>
@@ -258,4 +273,5 @@
 	<script src="js/dev.js"></script>
 
 </body>
+
 </html>
